@@ -1,4 +1,5 @@
 import cherrypy
+import m3u8
 import requests
 import urllib
 import urlparse
@@ -8,7 +9,6 @@ import StringIO
 from cherrypy.lib import file_generator
 from datetime import datetime, timedelta
 from dateutil import parser, tz
-from resources.lib import m3u8
 
 __addon__       = xbmcaddon.Addon()
 __language__    = __addon__.getLocalizedString
