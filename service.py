@@ -74,11 +74,10 @@ def rewind_playlist(m3u8_obj, start_at, segment_base_uri, key_headers={}):
 	# Add the video segments.
 	segment_uri_fmt = '%s%s%%s%s' % (segment_base_uri, segment_name_prefix, segment_name_suffix)
 	segment_time_fmt = '%Y%m%d%H%M%S'
-	# Give the playlist a four hour duration.
-	# FIXME: I'd LOVE for a way to be more accurate for this.  Also, there was
-	# recently a game that did not go to overtime, that had a duration of
-	# 3 hours and 40 minutes.  I question if 4 hours is long enough, now.
-	for i in xrange(0, int(14400 / m3u8_obj.target_duration)):
+	# Give the playlist a six hour duration.
+	# The longest game that I've seen so far is just over 5 hours.  Hopefully
+	# 6 hours will be long enough.
+	for i in xrange(0, int(21600 / m3u8_obj.target_duration)):
 		if key is not None and segment_time.hour != key_hour:
 			key_hour = segment_time.hour
 			key['uri'] = key_base_uri + \
