@@ -91,7 +91,7 @@ def rewind_playlist(m3u8_obj, start_at, segment_base_uri, key_headers={}):
 
 class HLSProxy(object):
 	def make_request(self, url, should_stream, headers=None):
-		ignore_headers = ['connection', 'content-length', 'host', 'range', 'remote-addr']
+		ignore_headers = ['connection', 'content-encoding', 'content-length', 'host', 'range', 'remote-addr']
 		req_headers = {}
 		for name, value in cherrypy.request.headers.items():
 			if name.lower() not in ignore_headers:
